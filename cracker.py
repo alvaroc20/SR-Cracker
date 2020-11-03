@@ -4,9 +4,7 @@ import itertools
 import string
 import os.path as path
 import subprocess
-
-name = "/home/alvaro/Universidad/Seguridad/ejemplos/ejemplo.gpg"
-
+import readline
 
 ### Genera un diccionario de posibles soluciones
 def keyGenerator(n, alphabet):
@@ -17,7 +15,14 @@ def keyGenerator(n, alphabet):
 ### Probar cada una de las combinaciones mediante el comando de descifrado.
 def keyTest(comb):
     for password in comb:
-        subprocess.call(['gpg', '--batch', '--passphrase', password, '-d', 'ejemplos/ejempl.gpg'])
+        password = password[:len(password)-1]
+        command = "gpg", "--batch", "--passphrase", password ,"-d ejemplos/ejemplo3.gpg"
+        print(command)
+        pass_a = subprocess.run(args=['gpg', '--batch', '--passphrase', password, '-d', 'ejemplos/teoria.pdf.gpg'])
+        if pass_a.returncode == 0:
+            print("HAAAS ACERTADOOOOO MOSTROOOOOOO")
+
+        #print(pass_a.stdout)
 
 ### PARAMETROS DE ENTRADA
 alphabet = string.ascii_lowercase
@@ -36,9 +41,8 @@ else:
 keyGenerator(n, alphabet)
 print(f"Diccionario creado en el archivo {fileDir} con {n} posiciones de contraseña")
 
-
 ### Probamos todas las contraseñas que hemos generado
 f = open(fileDir, "r")
 comb = f.readlines()
-keyTest(comb) 
+#keyTest(comb)
 f.close()

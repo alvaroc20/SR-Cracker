@@ -14,3 +14,6 @@ Genera diccionarios con el numero de posiciones que queremos.
 
 ### Version 1.1
 Prueba todas las contraseñas del diccionario.
+
+## Version 1.2
+Encuentra la contraseña pero todavia no es optimo
