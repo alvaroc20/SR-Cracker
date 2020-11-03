@@ -10,5 +10,7 @@ Una vez lo tengamos preguntará el número de posiciones de la contraseña que q
 
 ## Versiones
 ### Version 1.0
-Crea diccionarios con el numero de posiciones que queremos.
-Prueba las contraseñas del diccionario.
+Genera diccionarios con el numero de posiciones que queremos.
+
+### Version 1.1
+Prueba todas las contraseñas del diccionario.
