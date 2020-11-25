@@ -1,6 +1,17 @@
 #!/usr/bin/python3
 # -*- coding:utf-8; mode:python -*-
 
+#################################################################################
+''' Esta práctica está realizada por Álvaro Cerdá Pulla y Sergio Barrios Martínez 
+    
+    Asignatura: Seguridad en Redes
+    
+    Fecha: 25 de Noviembre de 2020
+
+    GitHub: https://github.com/alvaroc20/SR-Cracker
+    
+    Intensificación: Ingeniería de Computadores                                 '''
+#################################################################################
 
 import subprocess
 subprocess.run(args=['pip3', 'install', 'python-gnupg'])

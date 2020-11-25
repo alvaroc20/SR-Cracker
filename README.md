@@ -9,9 +9,9 @@ Es necesario tener tanto python3 como pip3.
 Para compilar usar:  
 `python3 gpg-cracker --len 4 --charset digits cifrado.gpg `  
 
---len: Indicar el número de posiciones que sea desea buscar.  
---charset: Indicar si queremos buscar entre digits/upper/lower.  
-name: Nombre del archivo que queremos descifrar.  
+**--len:** Indicar el número de posiciones que sea desea buscar.  
+**--charset:** Indicar si queremos buscar entre digits/upper/lower.  
+**name:** Nombre del archivo que queremos descifrar.  
 
 
 ## Versiones  
