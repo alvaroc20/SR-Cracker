@@ -3,7 +3,7 @@
 Cracker realizado para obtener los temas teoricos de la asignatura de Seguridad en Redes, parte de la intensificación de Ingeniería de Computadores. Realizamos el cracker para la versión que no tiene integridad, por Álvaro Cerdá y Sergio Barrios.  
 
 ## Requisitos Previos  
-Es necesario tener tanto python3 como pip3.  
+Es necesario tener tanto python3 como pip3. También es necesario algunas librerías que instalaremos al ejecutar el programa.  
 
 ## Compilacion y uso   
 Para compilar usar:  

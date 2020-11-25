@@ -9,6 +9,8 @@
     Fecha: 25 de Noviembre de 2020
 
     GitHub: https://github.com/alvaroc20/SR-Cracker
+
+    Compilación: python3 gpg-cracker --len 4 --charset lower cifrado.gpg
     
     Intensificación: Ingeniería de Computadores                                 '''
 #################################################################################
