@@ -1,19 +1,28 @@
 # SR-Cracker
 
-Cracker realizado para obtener los temas teoricos de la asignatura de Seguridad en Redes, parte de la intensificación de Ingeniería de Computadores.
+Cracker realizado para obtener los temas teoricos de la asignatura de Seguridad en Redes, parte de la intensificación de Ingeniería de Computadores. Realizamos el cracker para la versión que no tiene integridad, por Álvaro Cerdá y Sergio Barrios.  
 
-## Compilacion y uso
-Para compilar usar:
-python3 cracker.py
+## Requisitos Previos  
+Es necesario tener tanto python3 como pip3.  
 
-Una vez lo tengamos preguntará el número de posiciones de la contraseña que queremos crear. Posteriormente pedira que indiques un archivo para guardar el diccionario (creado o no existente). 
+## Compilacion y uso   
+Para compilar usar:  
+`python3 gpg-cracker --len 4 --charset digits cifrado.gpg `  
 
-## Versiones
-### Version 1.0
+--len: Indicar el número de posiciones que sea desea buscar.  
+--charset: Indicar si queremos buscar entre digits/upper/lower.  
+name: Nombre del archivo que queremos descifrar.  
+
+
+## Versiones  
+### Version 1.0  
 Genera diccionarios con el numero de posiciones que queremos.
 
-### Version 1.1
-Prueba todas las contraseñas del diccionario.
+### Version 1.1  
+Prueba todas las contraseñas del diccionario.  
 
-### Version 1.2
-Encuentra la contraseña pero todavia no es optimo
+### Version 1.2  
+Encuentra la contraseña pero todavia no es optimo.  
+
+### Version 1.3  
+Finalizado el correcto funcionamiento a excepción de la gestión de la finalización de los procesos al encontrar un resultado válido.  

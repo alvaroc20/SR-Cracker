@@ -1,14 +1,18 @@
 #!/usr/bin/python3
 # -*- coding:utf-8; mode:python -*-
+
+
+import subprocess
+subprocess.run(args=['pip3', 'install', 'python-gnupg'])
+subprocess.run(args=['pip3', 'install', 'progress'])
+subprocess.run(args=['pip3', 'install', 'multiprocess'])
+
 import string
 import math
 from time import time
 from multiprocessing import Process, cpu_count
 import gnupg
-import subprocess
-
-subprocess.run(args=['pip3', "install", "progress"])
-subprocess.run(args=['pip3', "install", "gnupg"])
+import argparse
 from progress.bar import IncrementalBar
 
 def to_base(n, alphabet, width):
@@ -39,32 +43,44 @@ def gen_key_partitions(key_space, partition_size):
         last = min(first + partition_size, key_space) -1
         yield first, last
 
-def gpg_Process(first, last, bar):
+def gpg_Process(first, last, bar,f):
     #Genera la secuencia de de combinaciones para la CPU x
     for key in range(first,last+1):
         password ='{}'.format(to_base(key, alphabet, key_len)) #print(password)
-        status = gpg.decrypt_file(open('trabajos-teoría.pdf.gpg-no-mdc', 'rb'), passphrase=password, output='trabajos-teoría.pdf')
+        status = gpg.decrypt#parser.add_argument('', required=True)
 
-        if status.ok:
-            print("\033[4;32m\n########################################\n")
-            print("La password es: ",password)
-            print("\n########################################\n\033")
-        bar.next()
-        
+
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--len', required=True, type=int)
+parser.add_argument('--charset', required=True)
+parser.add_argument('name')
+args = parser.parse_args()
+
 #Tipo de valores a combinar
-alphabet = 'buz'#string.ascii_lowercase # Si quieres que la encuentre rapido'buz'
+if(args.charset == "digits"):
+    alphabet = string.digits
+elif (args.charset == "lower"):
+    alphabet = string.ascii_lowercase
+elif (args.charset == "upper"):
+    alphabet = string.ascii_uppercase
+else:
+    sys.exit(2)
+
+
 #Tamaño de la cadena a formar
-key_len = 4
+key_len = args.len
+f = args.name
 key_space = len(alphabet) ** key_len
 n_partition = cpu_count()
 partition_size = math.ceil(key_space / n_partition)
 
-print("Partition size = key space / partitions = {:,} / {} = {:,}".format(key_space, n_partition, partition_size))
+print("Partition size = key space / #partitions = {:,} / {} = {:,}".format(key_space, n_partition, partition_size))
 
 bar = IncrementalBar('', max = partition_size)
 gpg = gnupg.GPG(options= '--ignore-mdc-error',)
 jobs =[]
-
 
 #Inicialización crackeo
 start_time = time()
@@ -76,7 +92,7 @@ for first, last in gen_key_partitions(key_space=key_space, partition_size=partit
 
     #gpg_Process(first, last, bar)
     
-    p = Process(target=gpg_Process, args=(first, last, bar))
+    p = Process(target=gpg_Process, args=(first, last, bar, f))
     jobs.append(p)
 
 #Inicialización procesos
