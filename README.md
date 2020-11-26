@@ -7,7 +7,7 @@ Es necesario tener tanto python3 como pip3. También es necesario algunas librer
 
 ## Compilacion y uso   
 Para compilar usar:  
-`python3 gpg-cracker --len 4 --charset digits cifrado.gpg `  
+`python3 gpg-cracker.py --len 4 --charset digits cifrado.gpg `  
 
 **--len:** Indicar el número de posiciones que sea desea buscar.  
 **--charset:** Indicar si queremos buscar entre digits/upper/lower.  
