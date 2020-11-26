@@ -26,3 +26,6 @@ Encuentra la contraseña pero todavia no es optimo.
 
 ### Version 1.3  
 Finalizado el correcto funcionamiento a excepción de la gestión de la finalización de los procesos al encontrar un resultado válido.  
+
+### Version 1.4  
+Finalizado totalmente.
